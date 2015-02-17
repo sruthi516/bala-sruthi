@@ -1,0 +1,57 @@
+package com.sruthi.basic;
+
+public class Spiral {
+
+	public static final int a = 4;
+	public static final int b = 4;
+
+	public static void main(String[] args) {
+	    int[][] array = new int[a][b];
+
+	    for(int i = 0; i < a; i++){
+	        for (int j = 0; j < b; j++){
+	            array[i][j] = i * a + (j + 1);
+	            System.out.print(array[i][j] + " ");
+	        } 
+	        System.out.println();
+	    }
+
+	    System.out.println("The contents of the array in spiral order");       
+
+	    spiralPrint(a, b, array);
+	}
+
+	public static void spiralPrint(int x, int y, int array[][]){
+	    int i,  p = 0, q = 0;
+	    x--;  y--;      
+
+	    while(p <= x && q <= y)
+	    {
+	        for(i = q; i <= y; ++i) 
+	        {
+	            System.out.print(array[p][i]+ " ");
+	        }           
+	        p++;
+
+	        for(i = p; i <= x; ++i) 
+	        {
+	            System.out.print(array[i][y] + " ");
+	        }
+	        y--;
+
+	        for(i = y; i >= q; --i) 
+	        {
+	                System.out.print(array[x][i] + " ");
+	        }
+	        x--;
+
+
+	        for(i = x; i >= p; --i) 
+	        {
+	            System.out.print(array[i][q] + " ");
+	        }
+	        q++;
+	    }
+	}
+
+}
